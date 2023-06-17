@@ -19,24 +19,15 @@ export default function Home({ navigation }:{ navigation: any }) {
   }, []);
 
 
-  const shirtItems = useAppSelector(selectShirt)
-
-  const pantsItems = useAppSelector(selectpants)
-
-  const shoesItems = useAppSelector(selectShoes)
-
-
 
   // Navigate to the SavedSet screen
   const pressHandler = () => {
     navigation.navigate('SavedSets');
   };
 
-  const navigateFunc = (selectedItems: any) => {
-    navigation.navigate('Outfit', { selectedItems })
-    console.log(selectedItems);
+  const navigateFunc = (path: string) => {
+    navigation.navigate('Outfit', { path })
   };
-  
 
 
 
@@ -45,17 +36,17 @@ export default function Home({ navigation }:{ navigation: any }) {
     <Text style={globalStyles.titleText}>Pick an outfit</Text>
     <CustomButton title="Saved Outfits" onPress={pressHandler} />
         <View style={styles.imageStyle}>
-        <TouchableOpacity onPress={() => navigateFunc(shirtItems)}>
+        <TouchableOpacity onPress={() => navigateFunc('shirt')}>
           <Image source={require('../assets/shirt.png')} style={styles.imageShirt}/>
         </TouchableOpacity>
         </View>
         <View style={styles.imageStyle}>
-        <TouchableOpacity onPress={() => navigateFunc(pantsItems)}>
+        <TouchableOpacity onPress={() => navigateFunc('pants')}>
           <Image source={require('../assets/pants.png')} style={styles.imagePants} />
         </TouchableOpacity>
         </View>
         <View style={styles.imageStyle}>
-        <TouchableOpacity onPress={() => navigateFunc(shoesItems)}>
+        <TouchableOpacity onPress={() => navigateFunc('shoes')}>
           <Image source={require('../assets/shoes.png')} style={styles.imageShoes} />
         </TouchableOpacity>
         </View>
@@ -63,7 +54,7 @@ export default function Home({ navigation }:{ navigation: any }) {
   );
 };
 
-const CustomButton = ({ title, onPress }) => {
+const CustomButton = ({ title, onPress }: { title: string, onPress: () => void }) => {
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
       <Text style={styles.buttonText}>{title}</Text>

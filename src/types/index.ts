@@ -6,3 +6,6 @@ export interface Item{
     size: number,
     brand: string,
 }
+
+export interface Route {params: {path: string}}
+

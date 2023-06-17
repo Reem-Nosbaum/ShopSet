@@ -1,15 +1,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { RootState } from "../store"
-import { loadItems } from "./item.actions"
+import { loadItems, saveSet } from "./item.actions"
 import { Item } from "../../types"
-
 
 interface InitialState {
     value: {
         shirt: null | Item[],
         pants: null | Item[],
         shoes: null | Item[],
-        savedItems: null | Item[]
+        savedItems: Array<Array<Item>>
     },
     status: string
 }
@@ -19,7 +18,7 @@ const initialState = {
         shirt: null ,
         pants: null ,
         shoes: null ,
-        savedItems: null,
+        savedItems: [],
     }
     ,
     status: 'idle'
@@ -42,6 +41,9 @@ export const itemSlice = createSlice({
                 state.value.pants = pants
                 state.value.shoes = shoes
             })
+            .addCase(saveSet.fulfilled,(state, action) => {
+                state.value.savedItems = [...state.value.savedItems, action.payload]
+            } )
     }
 })
 

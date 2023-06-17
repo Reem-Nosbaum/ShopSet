@@ -16,3 +16,10 @@ export const loadItems = createAsyncThunk<Item[]>(
     }
   }
 );
+
+export const saveSet = createAsyncThunk(
+   "item/saveSet",
+   (newSavedSet: Item[]) => {
+    return newSavedSet;
+   }
+  )
