@@ -42,8 +42,8 @@ export default function Outfit({ route, navigation }:{route: Route, navigation: 
   
     if(newSavedSet.length === 3){
       dispatch(saveSet(newSavedSet))
+      Alert.alert('you create a set')
       navigation.navigate('SavedSets');
-
     }
     else{
     switch (route.params.path) {

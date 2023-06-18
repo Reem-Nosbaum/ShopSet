@@ -3,7 +3,7 @@ export interface Item{
     id: number,
     type: string,
     color: string,
-    size: number,
+    size: number | string,
     brand: string,
 }
 
