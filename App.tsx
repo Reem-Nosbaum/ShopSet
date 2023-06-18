@@ -12,7 +12,7 @@ export default function App() {
   return (
     <Provider store={store}>
     <NavigationContainer>
-      <Stack.Navigator>
+    <Stack.Navigator >
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Outfit" component={Outfit} />
         <Stack.Screen name="SavedSets" component={SavedSets} />

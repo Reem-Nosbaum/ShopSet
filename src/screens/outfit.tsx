@@ -94,7 +94,7 @@ export default function Outfit({ route, navigation }:{route: Route, navigation: 
 
   return (
     <View style={globalStyles.container}>
-      <Text>This is the Outfit screen</Text>
+      <Text style={globalStyles.titleText}>Outfit screen</Text>
       <FlatList
         data={selectedItems}
         renderItem={({ item }) => <RenderItem item={item} changePage={pressHandler} />}

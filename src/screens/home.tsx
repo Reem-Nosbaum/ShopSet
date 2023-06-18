@@ -18,9 +18,6 @@ export default function Home({ navigation }:{ navigation: any }) {
     fetchData();
   }, []);
 
-
-
-  // Navigate to the SavedSet screen
   const pressHandler = () => {
     navigation.navigate('SavedSets');
   };
