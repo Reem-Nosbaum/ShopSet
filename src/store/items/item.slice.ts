@@ -51,7 +51,7 @@ export const itemSlice = createSlice({
 export const selectSavedItems = (state: RootState) => state.item.value.savedItems
 
 export const selectShirt = (state: RootState) => state.item.value.shirt
-export const selectpants = (state: RootState) => state.item.value.pants
+export const selectPants = (state: RootState) => state.item.value.pants
 export const selectShoes = (state: RootState) => state.item.value.shoes
 
 

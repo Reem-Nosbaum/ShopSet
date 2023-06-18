@@ -20,7 +20,6 @@ export default function SavedSets({ navigation }: { navigation: any }) {
 
   const renderSet = ({ item }: { item: any }) => (
     <View style={globalStyles.container}>
-      {/* Render individual items of the set here */}
       {item.map((item: any) => (
         <View key={item.id}>
           <Text>Type: {item.type}</Text>
@@ -35,7 +34,7 @@ export default function SavedSets({ navigation }: { navigation: any }) {
   return (
     <View style={globalStyles.container}>
       <Button title="Go back" onPress={pressHandlerGoBack} />
-      <Text style={globalStyles.titleText}>This is the SavedSets screen</Text>
+      <Text style={globalStyles.titleText}>All saved set: </Text>
       <FlatList
         data={displaySet}
         renderItem={renderSet}

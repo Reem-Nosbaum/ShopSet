@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Text, TouchableOpacity, View, FlatList, Image, StyleSheet, Alert } from 'react-native';
 import { globalStyles } from '../styles/global';
 import { useAppDispatch, useAppSelector } from '../store/hook';
-import { selectShirt, selectShoes, selectpants } from '../store/items/item.slice';
+import { selectShirt, selectShoes, selectPants } from '../store/items/item.slice';
 import { Item, Route } from '../types';
 import { saveSet } from '../store/items/item.actions';
 
@@ -13,7 +13,7 @@ export default function Outfit({ route, navigation }:{route: Route, navigation: 
 
   const shirtItems = useAppSelector(selectShirt)
 
-  const pantsItems = useAppSelector(selectpants)
+  const pantsItems = useAppSelector(selectPants)
 
   const shoesItems = useAppSelector(selectShoes)
 

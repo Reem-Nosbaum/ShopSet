@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import { useAppDispatch } from '../store/hook';
 import { loadItems } from '../store/items/item.actions';
-import { useAppSelector } from '../store/hook';
-import { selectShirt, selectShoes, selectpants } from '../store/items/item.slice';
 import { globalStyles } from '../styles/global';
 
 
