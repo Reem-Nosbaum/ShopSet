@@ -1,8 +1,9 @@
 import React from 'react';
-import { Button, FlatList, Text, TouchableOpacity, View } from 'react-native';
+import { Button, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { globalStyles } from '../styles/global';
 import { useAppSelector } from '../store/hook';
 import { selectSavedItems } from '../store/items/item.slice';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function SavedSets({ navigation }: { navigation: any }) {
   const savedItems = useAppSelector(selectSavedItems);
@@ -31,16 +32,42 @@ export default function SavedSets({ navigation }: { navigation: any }) {
     </View>
   );
   
-  return (
-    <View style={globalStyles.container}>
-      <Button title="Go back" onPress={pressHandlerGoBack} />
-      <Text style={globalStyles.titleText}>All saved set: </Text>
-      <FlatList
-        data={displaySet}
-        renderItem={renderSet}
-        keyExtractor={(item) => item[0].id.toString()}
-        numColumns={2}
-      />
-    </View>
-  );
+
+console.log(displaySet)
+
+return (
+  <View style={globalStyles.container}>
+  <Button title="Go back" onPress={pressHandlerGoBack} />
+  <ScrollView style={styles.scrollView}>
+
+    {displaySet.length > 0 ? (
+      displaySet.map((index: any) => (
+        <View key={index} style={styles.savedSetContainer}>
+            <FlatList
+              data={displaySet}
+              renderItem={renderSet}
+              keyExtractor={(item) => item[0].id.toString()}
+              horizontal
+            />
+        </View>
+      ))
+    ) : (
+      <Text style={globalStyles.titleText}>No saved sets found.</Text>
+    )}
+  </ScrollView>
+</View>
+);
 }
+
+const styles = StyleSheet.create({
+scrollView: {
+flex: 1,
+},
+savedSetContainer: {
+padding: 16,
+marginBottom: 8,
+borderWidth: 1,
+borderColor: '#ccc',
+borderRadius: 8,
+},
+});

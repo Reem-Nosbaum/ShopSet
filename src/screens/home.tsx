@@ -28,7 +28,7 @@ export default function Home({ navigation }:{ navigation: any }) {
 
       return (
     <View style={globalStyles.container}>
-    <Text style={globalStyles.titleText}>Pick an outfit</Text>
+    <Text style={globalStyles.titleText}>Welcome to Shop Set!</Text>
     <CustomButton title="Saved Outfits" onPress={pressHandler} />
         <View style={styles.imageStyle}>
         <TouchableOpacity onPress={() => navigateFunc('shirt')}>

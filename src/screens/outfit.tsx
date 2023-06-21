@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Text, TouchableOpacity, View, FlatList, Image, StyleSheet, Alert } from 'react-native';
 import { globalStyles } from '../styles/global';
 import { useAppDispatch, useAppSelector } from '../store/hook';
-import { selectShirt, selectShoes, selectPants } from '../store/items/item.slice';
+import { selectShirt, selectShoes, selectpants } from '../store/items/item.slice';
 import { Item, Route } from '../types';
 import { saveSet } from '../store/items/item.actions';
 
@@ -13,7 +13,7 @@ export default function Outfit({ route, navigation }:{route: Route, navigation: 
 
   const shirtItems = useAppSelector(selectShirt)
 
-  const pantsItems = useAppSelector(selectPants)
+  const pantsItems = useAppSelector(selectpants)
 
   const shoesItems = useAppSelector(selectShoes)
 
@@ -42,7 +42,7 @@ export default function Outfit({ route, navigation }:{route: Route, navigation: 
   
     if(newSavedSet.length === 3){
       dispatch(saveSet(newSavedSet))
-      Alert.alert('you create a set')
+      Alert.alert('You have created a new set')
       navigation.navigate('SavedSets');
     }
     else{
@@ -94,7 +94,7 @@ export default function Outfit({ route, navigation }:{route: Route, navigation: 
 
   return (
     <View style={globalStyles.container}>
-      <Text style={globalStyles.titleText}>Outfit screen</Text>
+      <Text style={globalStyles.titleText}>pick an item to create a set</Text>
       <FlatList
         data={selectedItems}
         renderItem={({ item }) => <RenderItem item={item} changePage={pressHandler} />}
