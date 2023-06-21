@@ -21,16 +21,24 @@ Before running the app, make sure you have the following installed:
 
 2. Install the dependencies:
 
+   ```shell
    cd ShopSet
    npm install
 
+   ```
+
 3. Start the Metro bundler:
 
+   ```shell
    npm start
+
+   ```
 
 4. For Android, launch the app on the emulator:
 
+   ```shell
    npm run android
+   ```
 
 ## Folder Structure
 
